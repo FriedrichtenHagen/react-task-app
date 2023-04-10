@@ -29,7 +29,6 @@ export function Overview({taskList, setTaskList}){
         <div>
             <form onSubmit={handleFormSubmit} >
                 <input defaultValue="Some initial value" name="todo"/>
-                <input type="checkbox" name="checkbox"></input>
                 <button type="submit">Submit todo</button>
             </form>
         </div>
