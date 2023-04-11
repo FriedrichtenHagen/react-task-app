@@ -1,6 +1,7 @@
+import {useState} from 'react';
+
 export function Overview({taskList, setTaskList}){
-    // create a serial number to be used as a key in the list items
-    let todoId = 0  
+    const [inputValue, setInputValue] = useState('');
 
     function handleFormSubmit(e){
         // prevent the form from sending http request
@@ -10,27 +11,26 @@ export function Overview({taskList, setTaskList}){
         const formData = new FormData(form)
         const formJson = Object.fromEntries(formData.entries());
         //console.log(formJson)
-
-
-
         let newTodoObject = {
             task: formJson.todo, 
             id: crypto.randomUUID(),
         }
-
         // save the todo into state
         setTaskList([...taskList, newTodoObject])
-
         console.log(taskList)
+
+        this.refs.inputName.value = "masdf"
     }
     
     
     return(
         <div>
             <form onSubmit={handleFormSubmit} >
-                <input defaultValue="Some initial value" name="todo"/>
+                <input defaultValue="Some initial value" value={inputValue} name="todo"/>
                 <button type="submit">Submit todo</button>
             </form>
         </div>
     )
 }
+
+// set up clearing the input using inputValue state 
