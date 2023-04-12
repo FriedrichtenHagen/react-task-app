@@ -19,14 +19,16 @@ export function Overview({taskList, setTaskList}){
         setTaskList([...taskList, newTodoObject])
         console.log(taskList)
 
-        this.refs.inputName.value = "masdf"
+    }
+    function handleInput(e){
+        setInputValue(e.target.value)
     }
     
     
     return(
         <div>
             <form onSubmit={handleFormSubmit} >
-                <input defaultValue="Some initial value" value={inputValue} name="todo"/>
+                <input defaultValue="Some initial value" value={inputValue} onChange={handleInput} name="todo"/>
                 <button type="submit">Submit todo</button>
             </form>
         </div>
